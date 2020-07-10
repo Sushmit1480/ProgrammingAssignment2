@@ -1,3 +1,6 @@
+## I simply set input x as a matrix.
+## and then set the solved value "inv" as a null
+## makeCacheMatrix function creates a special "matrix" object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()){
   inv <- NULL
   set <- function(y){
@@ -10,7 +13,9 @@ makeCacheMatrix <- function(x = matrix()){
   list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 }
 
+## cachesolve function computes the inverse of the special matrix returend
 cachesolve <- function(x, ...){
+  ## returns a matrix that is the inverse of the 'x'
   inv <- x$getInverse()
   if(!is.null(inv)){
     message("getting cache data")
